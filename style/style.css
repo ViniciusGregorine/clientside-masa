@@ -104,15 +104,58 @@ p {
     text-align: center;
   }
 
-  .content__second{
+
+
+
+
+
+    /* sencond */
+  .section{
       grid-area: s;
       min-height: 500px;
   }
 
+
+  /* change to class */
+  h2 {
+    margin-top: 90px;
+    text-align: center;
+    color: #3ECCBD;
+
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 49px;
+  }
+
+  .section__conteiner {
+    display: flex;
+    justify-content: space-between;
+    /* margin-top: 120px; */
+    margin: 120px 60px;
+    /* padding: 0px, 2px; */
+  }
+  .section__tecnologes {
+    width: 200px;
+    max-height: 120px;
+  }
+
+  
+
+
+
+
+
+
+
+  /* footer */
   .footer {
       grid-area: f;
       min-height: 100px;
-      background-color: tomato;
+      background-color: #092134;
   }
+
+
   
   
