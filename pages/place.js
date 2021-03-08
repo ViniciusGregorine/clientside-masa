@@ -18,7 +18,7 @@ const chard = (canva) => {
 
         // Configuration options go here
         options: {}
-    });
+    })
 
     function updateGraph() {
         chart.data.datasets[0].data.push(100);
@@ -59,7 +59,7 @@ const loadList = async() => {
         
         li.innerHTML = `<li class="place__list">
                             <span class="place__name">${sensors[index].description}</span>
-                            <div id="place_back"  width="723px" height="369px">
+                            <div class="place__back"  width="723px" height="369px">
                             <canvas class="place__graph0" id="place__graph${index}" ></canvas>
                         </div>
                         </li>`

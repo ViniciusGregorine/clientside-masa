@@ -31,7 +31,11 @@
     color: #9C9C9C;
 }
 
-.place__graph {
+/* .place__graph {
+   
+} */
+
+.place__back {
     position: absolute;
 
     Width: 723px;
@@ -41,8 +45,4 @@
     top: 16.38%;
     bottom: 3.06%;
     border-radius: 15px;
-}
-
-/* .place__back {
-
-}    */
+}    
