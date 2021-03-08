@@ -54,7 +54,6 @@ body {
   }
 
 
-
 p {
   position: relative;
 }
@@ -106,9 +105,6 @@ p {
 
 
 
-
-
-
     /* sencond */
   .section{
       grid-area: s;
@@ -132,21 +128,17 @@ p {
   .section__conteiner {
     display: flex;
     justify-content: space-between;
-    /* margin-top: 120px; */
+    align-items: center;
     margin: 120px 60px;
-    /* padding: 0px, 2px; */
   }
   .section__tecnologes {
     width: 200px;
     max-height: 120px;
   }
 
-  
-
-
-
-
-
+  .section__tecnologes.arduino {
+    max-height: 100px;
+  }
 
 
   /* footer */
@@ -155,7 +147,4 @@ p {
       min-height: 100px;
       background-color: #092134;
   }
-
-
-  
   
