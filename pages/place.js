@@ -1,4 +1,38 @@
- //api
+const chard = (canva) => {
+
+    var ctx = document.getElementById(`place__graph${canva}`).getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ['23:59', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                label: 'Temperature',
+                backgroundColor: '#007bbd79',
+                borderColor: '#007ABD',
+                data: [0, 10, 5, 10, 20, 15, 15]
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+
+    function updateGraph() {
+        chart.data.datasets[0].data.push(100);
+        chart.data.labels.push('new label');
+
+
+        chart.update();
+    }
+}
+
+chard(-1)
+
+
+//api
  const getSensors= async() => {
    try {
     const {data}  = await axios.get('http://localhost:3456/sensor')
@@ -10,6 +44,8 @@
    }
  }
    
+// load chat
+
 
 let ul = document.getElementById('place')
 
@@ -23,10 +59,14 @@ const loadList = async() => {
         
         li.innerHTML = `<li class="place__list">
                             <span class="place__name">${sensors[index].description}</span>
-                            <canvas class="place__graph"></canvas>
+                            <div id="place_back"  width="723px" height="369px">
+                            <canvas class="place__graph0" id="place__graph${index}" ></canvas>
+                        </div>
                         </li>`
 
         ul.appendChild(li)
+
+        chard(index)
     } 
 }
 
