@@ -1,0 +1,49 @@
+.place {
+    margin-top: 155px;
+    list-style-type: none;
+}
+
+.place__list {
+    position: relative;
+    width: 942px;
+    height: 458px;
+
+    text-align: center;
+    margin: 0 auto 90px;
+    border-radius: 14px;
+        
+    background-color: rgb(255, 255, 255);
+}
+
+.place__name {
+    position: absolute;
+    left: 38.03%;
+    right: 38.03%;
+    top: 2.4%;
+    bottom: 90.39%;
+
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 30px;
+
+    color: #9C9C9C;
+}
+
+.place__graph {
+    background-color: rgb(116, 116, 156);
+    position: absolute;
+
+    Width: 723px;
+    Height: 369px;
+    left: 11.61%;
+    right: 11.61%;
+    top: 16.38%;
+    bottom: 3.06%;
+    border-radius: 15px;
+}
+
+/* .place__back {
+
+}    */
