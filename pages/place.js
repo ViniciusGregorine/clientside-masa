@@ -1,32 +1,4 @@
-const chard = (canva) => {
-
-    var ctx = document.getElementById(`place__graph${canva}`).getContext('2d');
-    var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'line',
-
-        // The data for our dataset
-        data: {
-            labels: ['23:59', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [{
-                label: 'Temperature',
-                backgroundColor: '#007bbd79',
-                borderColor: '#007ABD',
-                data: [0, 10, 5, 10, 20, 15, 15]
-            }]
-        },
-
-        // Configuration options go here
-        options: {}
-    })
-
-    function updateGraph() {
-        chart.data.datasets[0].data.push(100);
-        chart.data.labels.push('new label');
-
-        chart.update();
-    }
-}
+import {chard} from './chard.js'
 
 chard(-1)
 
@@ -57,20 +29,20 @@ chard(-1)
 
 
 // creating LIs  with chad
-let ul = document.getElementById('place')
+
 
 
 const loadList = async() => {
+    let ul = document.getElementById('place')
     const sensors = await getSensors()
 
-    console.log(sensors)
     for (let index in sensors) {
         let li = document.createElement('li')
         
         li.innerHTML = `<li class="place__list">
                             <span class="place__name">${sensors[index].description}</span>
                             <div class="place__back"  width="723px" height="369px">
-                            <canvas class="place__graph0" id="place__graph${index}" ></canvas>
+                            <canvas class="place__graph" id="place__graph${index}" ></canvas>
                         </div>
                         </li>`
 
@@ -81,5 +53,3 @@ const loadList = async() => {
 }
 
 loadList()
-
-getReadings()
