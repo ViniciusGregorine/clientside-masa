@@ -24,7 +24,6 @@ const chard = (canva) => {
         chart.data.datasets[0].data.push(100);
         chart.data.labels.push('new label');
 
-
         chart.update();
     }
 }
@@ -43,10 +42,21 @@ chard(-1)
         console.error(error)
    }
  }
+
+ const getReadings= async() => {
+    try {
+     const {data}  = await axios.get('http://localhost:3456/reading')
+     console.log(data)
+ 
+     return data
+    } catch (error) {
+         console.error(error)
+    }
+  }
    
-// load chat
 
 
+// creating LIs  with chad
 let ul = document.getElementById('place')
 
 
@@ -71,3 +81,5 @@ const loadList = async() => {
 }
 
 loadList()
+
+getReadings()
