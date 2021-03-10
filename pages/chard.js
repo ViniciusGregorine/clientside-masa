@@ -1,4 +1,4 @@
-export const chard = (canva) => {
+export const chard = (canva, data, data2, label) => {
 
     var ctx = document.getElementById(`place__graph${canva}`).getContext('2d');
     var chart = new Chart(ctx, {
@@ -7,23 +7,31 @@ export const chard = (canva) => {
 
         // The data for our dataset
         data: {
-            labels: ['23:59', 'February', 'March', 'April', 'May', 'June', 'July'],
+            labels: label,
             datasets: [{
-                label: 'Temperature',
-                backgroundColor: '#007bbd79',
-                borderColor: '#007ABD',
-                data: [0, 10, 5, 10, 20, 15, 15]
+                label: 'Temperatura',
+                backgroundColor: null,
+                borderColor: '#ff471a',
+                data: data
+            },
+            {
+            label: 'Humidade',
+            backgroundColor: null,
+            borderColor: '#007ABD',
+            data: data2
+            
             }]
         },
 
         // Configuration options go here
         options: {}
     })
-
-    function updateGraph() {
-        chart.data.datasets[0].data.push(100);
-        chart.data.labels.push('new label');
-
+     function updateGraph(data, label) {
+        chart.data.datasets[0].data.push(data);
+        chart.data.labels.push(label);
+    
         chart.update();
     }
+   
 }
+

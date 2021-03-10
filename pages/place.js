@@ -1,6 +1,6 @@
 import {chard} from './chard.js'
 
-chard(-1)
+
 
 
 //api
@@ -30,8 +30,6 @@ chard(-1)
 
 // creating LIs  with chad
 
-
-
 const loadList = async() => {
     let ul = document.getElementById('place')
     const sensors = await getSensors()
@@ -48,7 +46,25 @@ const loadList = async() => {
 
         ul.appendChild(li)
 
-        chard(index)
+        let arrayTemp = [] 
+        let arrayDate = []
+        let arrayHumi = []
+        
+        getReadings()
+          .then(value => value.forEach(element => {
+            arrayTemp.push(element.value_temperature)
+            arrayDate.push(element.date)
+            arrayHumi.push(element.value_humidity)
+    
+            chard(index, arrayTemp, arrayHumi, arrayDate)
+          })
+          .then(
+            console.log(a)
+          )
+          )
+          .catch(err => console.log(err))
+
+        
     } 
 }
 
