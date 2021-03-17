@@ -1,32 +1,5 @@
 import {chard} from './chard.js'
-
-
-
-
-//api
- const getPlace= async() => {
-   try {
-    const {data}  = await axios.get('http://localhost:3456/place')
-    console.log(data)
-
-    return data
-   } catch (error) {
-        console.error(error)
-   }
- }
-
- const getReadings= async() => {
-    try {
-     const {data}  = await axios.get('http://localhost:3456/reading')
-     console.log(data)
- 
-     return data
-    } catch (error) {
-         console.error(error)
-    }
-  }
-   
-
+import {getPlace, getReadings} from '../server/api.js'
 
 // creating LIs  with chad
 
