@@ -1,24 +1,27 @@
-export const chard = (canva, data, data2, label) => {
+export function createCtx(canva){
+    const ctx = document.getElementById(`place__graph${canva}`).getContext('2d');
+    return ctx
+}
 
-    var ctx = document.getElementById(`place__graph${canva}`).getContext('2d');
+export function createChart(ctx) {
     var chart = new Chart(ctx, {
         // The type of chart we want to create
         type: 'line',
 
         // The data for our dataset
         data: {
-            labels: label,
+            labels: [],
             datasets: [{
                 label: 'Temperatura',
                 backgroundColor: null,
                 borderColor: '#ff471a',
-                data: data
+                data: []
             },
             {
             label: 'Humidade',
             backgroundColor: null,
             borderColor: '#007ABD',
-            data: data2
+            data: []
             
             }]
         },
@@ -26,12 +29,26 @@ export const chard = (canva, data, data2, label) => {
         // Configuration options go here
         options: {}
     })
-     function updateGraph(data, label) {
-        chart.data.datasets[0].data.push(data);
-        chart.data.labels.push(label);
-    
-        chart.update();
-    }
-   
+    return chart
 }
+
+export const addData = async(chart, label, data) => {
+    
+    const labelx = label
+    labelx.forEach(element => {
+        console.log('elemento label: ', element)
+        chart.data.labels.push(element);  
+    });
+
+    const datay = await data//[2, 4]
+        for(let i = 0; i <= datay.length; i ++){
+            console.log('gatinha: ', datay)
+            chart.data.datasets[0].data.push(datay[i])
+        
+        }
+    
+    chart.update();
+} 
+    
+
 
