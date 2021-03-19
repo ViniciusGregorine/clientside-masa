@@ -26,22 +26,20 @@ const loadList = async() => {
         let arrayDate = []
         let arrayHumi = []
         
-       
-
+      
         try {
            const readings = await getReadings()
            readings.forEach(element => {
             arrayTemp.push(element.value_temperature)
-            arrayDate.push(element.date)
+            arrayDate.push(element.hour)
             arrayHumi.push(element.value_humidity)    
           })
         } catch (error) {
           console.log(error)
            throw new Error(error)
         }
-       
-      
-        addData(one, arrayDate,  arrayTemp) 
+  
+        addData(one, arrayDate,  arrayTemp, arrayHumi) 
     } 
 }
 

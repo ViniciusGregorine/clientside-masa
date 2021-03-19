@@ -32,21 +32,20 @@ export function createChart(ctx) {
     return chart
 }
 
-export const addData = async(chart, label, data) => {
+export const addData = async(chart, label, data1, data2) => {
     
-    const labelx = label
-    labelx.forEach(element => {
-        console.log('elemento label: ', element)
+    label.forEach(element => {
         chart.data.labels.push(element);  
     });
 
-    const datay = await data//[2, 4]
-        for(let i = 0; i <= datay.length; i ++){
-            console.log('gatinha: ', datay)
-            chart.data.datasets[0].data.push(datay[i])
-        
-        }
-    
+    data1.forEach(element => {
+        chart.data.datasets[0].data.push(element) 
+    });
+
+    data2.forEach(element => {
+        chart.data.datasets[1].data.push(element) 
+    });
+
     chart.update();
 } 
     
