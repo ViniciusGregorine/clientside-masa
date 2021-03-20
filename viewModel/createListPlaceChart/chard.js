@@ -48,6 +48,3 @@ export const addData = async(chart, label, data1, data2) => {
 
     chart.update();
 } 
-    
-
-
