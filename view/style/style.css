@@ -5,6 +5,18 @@ body {
     grid-template-areas: "h h" "m m" "s s" "f f";
 }
 
+h2 {
+  margin-top: 90px;
+  text-align: center;
+  color: #3ECCBD;
+
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 49px;
+}
+
 .menu {
     grid-area: h;
     display: flex;
@@ -62,11 +74,15 @@ p {
   .content__hereo {
     position: relative;
     background:transparent;
+    width: 100%;
     height: 689px;
+    /* display: flex; */
+    overflow: hidden;
+   
 
     grid-area: m;
   }
-  .content__hereo::before {
+  .content__hereo:before {
     content: '';
     position: absolute;
     top: 0;
@@ -92,44 +108,48 @@ p {
     padding-top: 80px;
     /* padding-left: 10%; */
     min-width: 970px;
+   
+  }
+
+  .content__paragraph{
     color: #fff;
     text-align: center;
 
-    font-family: Roboto;
+    font-family: sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 26px;
     line-height: 30px;
     text-align: center;
   }
-
-
-
+.content__paragraph.black{
+  color: rgba(0, 0, 0, 0.62);
+}
+  
     /* sencond */
   .section{
       grid-area: s;
       min-height: 500px;
+      
+  }
+
+  .content__description{
+    text-align: center;
+    width: 1171px;
+    height: 128px;
+    margin: 0, auto;
   }
 
 
   /* change to class */
-  h2 {
-    margin-top: 90px;
-    text-align: center;
-    color: #3ECCBD;
-
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 49px;
-  }
+  
 
   .section__conteiner {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 120px 60px;
+    margin-bottom: 90px;
   }
   .section__tecnologes {
     width: 200px;
@@ -144,6 +164,7 @@ p {
   /* footer */
   .footer {
       grid-area: f;
+      margin-top: 120px;
       min-height: 100px;
       background-color: #092134;
   }
