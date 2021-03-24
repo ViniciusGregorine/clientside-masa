@@ -148,10 +148,11 @@ background-color: rgba(0,0,0,0);
 }
 
 .section__description{
+	margin: 0 auto;
   text-align: center;
-  width: 1171px;
+  width: 90%;
   height: 128px;
-  margin: 0, auto;
+
 }
 
 
