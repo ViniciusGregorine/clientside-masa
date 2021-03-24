@@ -154,12 +154,3 @@ background-color: rgba(0,0,0,0);
   height: 128px;
 
 }
-
-
-  /* footer */
-.footer {
-  grid-area: f;
-  margin-top: 120px;
-  min-height: 100px;
-  background-color: #092134;
-}
