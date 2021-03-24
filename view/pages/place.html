@@ -7,12 +7,13 @@
     <title>Welcome</title>
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/footer.css">
     <link rel="stylesheet" href="place.css">
 </head>
 <body>
     <header class="menu">
         <div class="menu__section left">
-            <img class="menu__icon" src="../icons/burger.svg" alt="burger" onclick="">
+            <img class="menu__icon" src="../public/icons/burger.svg" alt="burger" onclick="">
         </div>
 
         <nav class="menu__section right">
@@ -24,11 +25,25 @@
         <ul class="place" id="place"></ul>
     </main>
     <footer class="footer">
-        <h3>oi</h3>
+        <section class="footer__section">
+            <h3 class="footer__item">Projeto</h3>
+            <p class="footer__item">artigo</p>
+            <p class="footer__item">GitHub</p>
+        </section>
+        <section class="footer__section">
+            <div class="footer__line"></div>
+        </section>
+        <section class="footer__section">
+            <h3 class="footer__item">Instituição</h3>
+            <p class="footer__item">Instituto Federal Catarinense (IFC)</p>
+            <p class="footer__item"> contato: 48 996487855</p>
+        </section>            
     </footer>
-    <script type="module" src="../../viewModel/place.js"></script>
-    <script type="module" src="../../chard.js"></script>
-    <script type="module" src="../../model/server/api.js"></script>
+
+    <!-- scripts -->
+    <script type="module" src="../../viewModel/createListPlaceChart/chard.js"></script>
+    <script type="module" src="../../viewModel/createListPlaceChart/creatChartCard.js"></script>
+    <script type="module" src="../../viewModel/createListPlaceChart/loadCardList.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
 </body>

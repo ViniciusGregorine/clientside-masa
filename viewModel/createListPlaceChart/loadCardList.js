@@ -1,5 +1,5 @@
 import {createChart, createCtx, addData} from './chard.js'
-import {getPlace, getReadings} from '../model/server/api.js'
+import {getPlace, getReadings} from '../../model/server/api.js'
 
 // creating LIs  with chad
 
