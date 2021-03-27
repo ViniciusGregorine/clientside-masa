@@ -12,7 +12,7 @@ const loadList = async() => {
 
         li.innerHTML = `<li class="place__list">
                             <span class="place__name">${places[index].description}</span>
-                            <div class="place__back"  width="723px" height="369px">
+                            <div class="place__back" >
                             <canvas class="place__graph" id="place__graph${index}" ></canvas>
                         </div>
                         </li>`
