@@ -2,7 +2,7 @@
 body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "h h" "m m" "s s" "f f";
+  grid-template-areas: "h h" "m m" "s s" "d d" "f f" ;
 }
 
 h2 {
@@ -29,7 +29,7 @@ p {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  background-color: #3ECCBD;
+  background-color: #092134/*#3ECCBD;*/
 }
 
 .menu__section {
@@ -143,14 +143,39 @@ background-color: rgba(0,0,0,0);
   max-height: 120px;
 }
 
+
 .section__tecnologes.arduino {
   max-height: 100px;
 }
 
 .section__description{
+  grid-area: d;
 	margin: 0 auto;
+  margin-bottom: 10px;
   text-align: center;
   width: 90%;
   height: 128px;
 
+}
+
+/* media querys */
+@media (max-width: 769px) {
+  .section__conteiner{
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 60px;
+    gap: 60px;
+
+  }
+
+  /* .content__article{
+    font-size: calc(16px + (8/1200) * 100 * 1vw);
+  }*/
+} 
+
+@media (max-width: 380px) {
+  .content__hereo:before {
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    transform: scaleX(2);
+  }
 }
