@@ -9,21 +9,37 @@ export function createChart(canvaNumber) {
             labels: [],
             datasets: [{
                 label: 'Temperatura',
-                backgroundColor: null,
-                borderColor: '#ff471a',
+                fill: false,
+                borderColor: '#FF3833',
                 data: []
             },
             {
             label: 'Humidade',
-            backgroundColor: null,
-            borderColor: '#007ABD',
+            fill: false,
+            borderColor: '#475966',
             data: []
             
             }]
         },
 
         // Configuration options go here
-        options: {}
+        options: {
+            legend: {
+                display: true,
+                labels: {
+                    boxWidth: 15,
+                    // usePointStyle: true
+                }
+            },
+
+            // xAxes: [{
+            //     ticks: {
+            //         max: 5,
+            //         min: 0,
+            //         stepSize: 0.5
+            //     }
+            // }]
+        }
     })
     return chart
 }
