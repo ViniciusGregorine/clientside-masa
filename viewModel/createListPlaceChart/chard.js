@@ -1,9 +1,5 @@
-export function createCtx(canva){
-    const ctx = document.getElementById(`place__graph${canva}`).getContext('2d');
-    return ctx
-}
-
-export function createChart(ctx) {
+export function createChart(canvaNumber) {
+    const ctx = document.getElementById(`place__graph${canvaNumber}`).getContext('2d');
     var chart = new Chart(ctx, {
         // The type of chart we want to create
         type: 'line',

@@ -18,5 +18,16 @@ export const getReadings= async() => {
      } catch (error) {
           console.error(error)
      }
-   }
-    
+}
+
+export const getReadingsByPlaceId = async(placeId) => {
+	try {
+	 const {data}  = await axios.get(`http://localhost:3456/reading${placeId}`)
+	 console.log(data)
+ 
+	 return data
+	} catch (error) {
+		 console.error(error)
+	}
+  }
+ 

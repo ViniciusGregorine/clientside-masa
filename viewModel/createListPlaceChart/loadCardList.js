@@ -1,5 +1,5 @@
-import {createChart, createCtx, addData} from './chard.js'
-import {getPlace, getReadings} from '../../model/server/api.js'
+import {createChart, addData} from './chard.js'
+import {getPlace, getReadings, getReadingsByPlaceId} from '../../model/server/api.js'
 
 // creating LIs  with chad
 
@@ -19,8 +19,8 @@ const loadList = async() => {
 
         ul.appendChild(li)
 
-        const one = createChart(createCtx(index))
-        console.log(one)
+        const placeChart = createChart(index)
+   
 
         let arrayTemp = [] 
         let arrayDate = []
@@ -28,7 +28,7 @@ const loadList = async() => {
         
       
         try {
-           const readings = await getReadings()
+           const readings = await getReadingsByPlaceId(places[index].id)
            readings.forEach(element => {
             arrayTemp.push(element.value_temperature)
             arrayDate.push(element.hour)
@@ -39,7 +39,7 @@ const loadList = async() => {
            throw new Error(error)
         }
   
-        addData(one, arrayDate,  arrayTemp, arrayHumi) 
+        addData(placeChart, arrayDate,  arrayTemp, arrayHumi) 
     } 
 }
 
