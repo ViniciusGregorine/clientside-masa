@@ -10,17 +10,35 @@
     <link rel="stylesheet" href="../style/footer.css">
     <link rel="stylesheet" href="place.css">
 </head>
+
+<nav class="sidebar" id="sidebar">
+    <div class="sidebar__options">
+        <a href="./pages/place.html">Ambientes</a>
+        <a href="#">Sensores</a>
+        <a href="#">Instituições</a>
+    </div>
+</nav>
+
 <body>
     <header class="menu">
         <div class="menu__section left">
-            <img class="menu__icon" src="../public/icons/burger.svg" alt="burger" onclick="">
+            <img class="menu__icon" id="burgerMenu" src="../public/icons/burger.svg" alt="burger" onclick="moveSidebar()">
         </div>
 
-        <nav class="menu__section right">
-            <a class="menu__link" href="#">sobre</a>
+        <div class="menu__section right">
+            <a class="menu__link" href="../index.html">sobre</a>
             <a class="menu__link" href="#">login</a>
-        </nav>
+        </div>
     </header>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar__options">
+            <a href="">Ambientes</a>
+            <a href="#">Sensores</a>
+            <a href="#">Instituições</a>
+        </div>
+    </nav>
+
     <main>
         <ul class="place" id="place"></ul>
     </main>
@@ -41,10 +59,12 @@
     </footer>
 
     <!-- scripts -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="../../viewModel/createListPlaceChart/chard.js"></script>
     <script type="module" src="../../viewModel/createListPlaceChart/creatChartCard.js"></script>
     <script type="module" src="../../viewModel/createListPlaceChart/loadCardList.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+    <script src="../../viewModel/sideBarFunciton/moveSidebar.js"></script>
+    <script type="module" src="../viewModel/sideBarFunciton/moveSidebar.js"></script>
 </body>
 </html>
