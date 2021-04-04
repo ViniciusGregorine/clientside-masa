@@ -1,9 +1,20 @@
+h1{
+    margin-top: 30px;
+    padding: 0;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 34px;
+    line-height: 40px;
+
+    color: rgba(9, 33, 52, 0.8);
+}
+
 .menu{
     background-color: #092134;
 }
 
 .place {
-    margin-top: 155px;
+    margin-top: 60px;
     list-style-type: none;
     display: flex;
     flex-direction: column;
@@ -11,7 +22,7 @@
 
 .place__list {
     position: relative; 
-    height: minmax(80vh, 500px );
+    height: minmax(80vh, 500px);
     width:80vw;
    
     
@@ -29,7 +40,7 @@
     font-family: sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 2.3vw;
+    font-size: 26px;
     line-height: 30px;
 
     color: #9C9C9C;
