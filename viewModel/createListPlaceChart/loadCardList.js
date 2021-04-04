@@ -1,4 +1,4 @@
-import {createChart, addData} from './chard.js'
+import {createChart, addData, applyXFilter} from './chard.js'
 import {getPlace, getReadings, getReadingsByPlaceId} from '../../model/server/api.js'
 
 // creating LIs  with chad
@@ -15,6 +15,10 @@ const loadList = async() => {
                             <div class="place__back" >
                             <canvas class="place__graph" id="place__graph${index}" ></canvas>
                         </div>
+                            <nav class="place__filter">
+                              <button class="place__button">Hoje</button>
+                              <button class="place__button">3 meses</button>
+                            </nav>
                         </li>`
 
         ul.appendChild(li)
@@ -38,8 +42,12 @@ const loadList = async() => {
           console.log(error)
            throw new Error(error)
         }
+
+        arrayDate = arrayDate.sort()
   
         addData(placeChart, arrayDate,  arrayTemp, arrayHumi) 
+      
+        applyXFilter(placeChart)
     } 
 }
 

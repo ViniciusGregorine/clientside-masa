@@ -1,6 +1,7 @@
 export function createChart(canvaNumber) {
     const ctx = document.getElementById(`place__graph${canvaNumber}`).getContext('2d');
     var chart = new Chart(ctx, {
+
         // The type of chart we want to create
         type: 'line',
 
@@ -28,17 +29,15 @@ export function createChart(canvaNumber) {
                 display: true,
                 labels: {
                     boxWidth: 15,
-                    // usePointStyle: true
                 }
             },
 
-            // xAxes: [{
-            //     ticks: {
-            //         max: 5,
-            //         min: 0,
-            //         stepSize: 0.5
-            //     }
-            // }]
+            scales: {xAxes: [{
+                ticks: {
+                    autoSkip: true,
+                    maxTicksLimit: 5
+                }
+            }]}
         }
     })
     return chart
@@ -60,3 +59,10 @@ export const addData = async(chart, label, data1, data2) => {
 
     chart.update();
 } 
+
+export const applyXFilter = async(chart) => {
+    let labels = chart.data.labels
+
+   console.log('this is my house: ', labels)
+
+}

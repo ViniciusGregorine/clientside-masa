@@ -7,10 +7,9 @@ function moveSidebar(){
       document.getElementById("burgerMenu").style.position = "fixed";
       document.getElementById("burgerMenu").style.color = "black";
 
-      
     }else{
       document.getElementById("sidebar").style.width = "";
       document.getElementById("burgerMenu").style.position = "relative"; 
       document.getElementById("body").style.background = "white"; 
     }
-  }
+}
