@@ -1,4 +1,6 @@
 .register__container {
+    display: flex;
+    flex-direction: column;
     margin: 30px auto 0 auto;
     width: 1060.5px;
     min-height: 586px;
@@ -29,13 +31,13 @@
 }
 
 .register__input {
-    margin-top: 10px;
-    margin: 60px auto 0;
+    margin: 10px auto 0;
     width: 490px;
 }
 
 .register__button {
     margin-top: 60px;
+    margin-bottom: 20px;
     width: 497px;
     height: 64px;
     color: white;
