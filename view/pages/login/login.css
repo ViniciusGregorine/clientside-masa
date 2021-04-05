@@ -1,9 +1,7 @@
-
-
 .register__container {
     margin: 30px auto 0 auto;
     width: 1060.5px;
-    height: 586px;
+    min-height: 586px;
 
     align-items: center;
     text-align: center;
@@ -12,4 +10,73 @@
 
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
+}
+
+.register__tittle{
+    padding-top: 60px;
+
+
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 34px;
+    line-height: 40px;
+
+    /* identical to box height */
+    text-align: center;
+
+    color: #4FBBB0;
+}
+
+.register__input {
+    margin-top: 10px;
+    margin: 60px auto 0;
+    width: 490px;
+}
+
+.register__button {
+    margin-top: 60px;
+    width: 497px;
+    height: 64px;
+    color: white;
+
+    background: #3ECCBD;
+    border-radius: 76px;
+    border: none;
+
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 37px;
+
+    color: #FFFFFF;
+}
+
+.input__container{
+    text-align: left;
+    margin-top: 90px;
+}
+
+.input__tittle{
+    width: 64px;
+    height: 30px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 30px;
+
+    color: #4FBBB0;
+}
+
+
+.input__area{
+    width: 100%;
+
+    border:none;
+    padding: 5px 10px;
+    outline: none;
+
+    border-bottom: 2px solid #3ECCBD;
 }
