@@ -13,12 +13,12 @@ const loadList = async() => {
         li.innerHTML = `<li class="place__list">
                             <span class="place__name">${places[index].description}</span>
                             <div class="place__back" >
-                            <canvas class="place__graph" id="place__graph${index}" ></canvas>
-                        </div>
-                            <nav class="place__filter">
-                              <button class="place__button">Hoje</button>
-                              <button class="place__button">3 meses</button>
-                            </nav>
+                              <canvas class="place__graph" id="place__graph${index}" ></canvas>
+                            </div>
+                            <!-- <nav class="place__filter">
+                            <button class="place__button" onclick="applyXFilter(placeChart)">Hoje</button>
+                            <button class="place__button">3 meses</button>
+                            </nav> -->
                         </li>`
 
         ul.appendChild(li)
