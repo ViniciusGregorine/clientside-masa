@@ -5,7 +5,7 @@ body {
   grid-template-areas: "h h" "m m" "s s" "d d" "f f" ;
 }
 
-h2 {
+.section__subtittle {
   margin-top: 90px;
   text-align: center;
   color: #3ECCBD;
@@ -128,7 +128,7 @@ font-family: sans-serif;
   transform: scaleX(1.5);
 }
   
-.content__tittle, h1{
+.content__tittle{
   position: relative;
   padding-top: 120px;
   color: #fff;
