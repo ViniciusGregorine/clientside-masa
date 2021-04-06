@@ -1,21 +1,27 @@
+.menu{
+    background-color: #092134;
+    /* height: 40px; */
+}
+
 .register__container {
     display: flex;
     flex-direction: column;
     margin: 30px auto 0 auto;
-    width: 1060.5px;
-    min-height: 586px;
+    width: 990px;
+    min-height: 200px;
 
     align-items: center;
     text-align: center;
 
     background-color: white;
+    border-radius: 6px;
 
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
 }
 
 .register__tittle{
-    padding-top: 60px;
+    padding-top: 30px;
 
 
     font-family: sans-serif;
@@ -38,18 +44,18 @@
 .register__button {
     margin-top: 60px;
     margin-bottom: 20px;
-    width: 497px;
-    height: 64px;
+    width: 480px;
+    height: 55px;
     color: white;
 
     background: #3ECCBD;
-    border-radius: 76px;
+    border-radius: 6px;
     border: none;
 
     font-family: sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 32px;
+    font-size: 26px;
     line-height: 37px;
 
     color: #FFFFFF;
@@ -57,16 +63,16 @@
 
 .input__container{
     text-align: left;
-    margin-top: 90px;
+    margin-top: 60px;
 }
 
 .input__tittle{
-    width: 64px;
-    height: 30px;
+    /* width: 50px; */
+    /* height: 30px; */
     font-family: sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 26px;
+    font-size: 23px;
     line-height: 30px;
 
     color: #4FBBB0;
@@ -75,10 +81,31 @@
 
 .input__area{
     width: 100%;
+    height: 40px;
+
+    font-size: 23px;
+    color: #858585;
 
     border:none;
-    padding: 5px 10px;
+    /* padding: 0 0 5px 2px; */
     outline: none;
 
     border-bottom: 2px solid #3ECCBD;
 }
+
+/* input[type=text] {
+    height: 60px;
+    } */
+
+/* ::placeholder { 
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 19px;
+
+
+
+    color: #A6A6A6;
+    opacity: 1; 
+  } */
