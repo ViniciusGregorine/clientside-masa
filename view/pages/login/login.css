@@ -33,7 +33,7 @@
     /* identical to box height */
     text-align: center;
 
-    color: #4FBBB0;
+    color: rgb(41, 175, 162);;
 }
 
 .register__input {
@@ -61,6 +61,19 @@
     color: #FFFFFF;
 }
 
+.register__button:hover{
+    /* transition: 0.6s; */
+    opacity: 0.8;
+
+    cursor:pointer;  
+}
+
+.register__button:active{
+    background-color: #297e75;
+}
+
+
+
 .input__container{
     text-align: left;
     margin-top: 60px;
@@ -75,7 +88,7 @@
     font-size: 23px;
     line-height: 30px;
 
-    color: #4FBBB0;
+    color: #27b4a6;
 }
 
 
