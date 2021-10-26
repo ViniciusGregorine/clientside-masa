@@ -36,12 +36,16 @@
             <div class="register__input">
                 <div class="input__container">
                     <h2 class="input__tittle">Email</h2>
-                    <input class="input__area" type="text" >
+                    <input class="input__area" id="email_input" type="text"  value="" >
                 </div>
                 <div class="input__container">
                     <h2 class="input__tittle">Senha</h2>
-                    <input class="input__area" type="password" >
+                    <input class="input__area" id="password_input" type="password"  value="">
                 </div>
+            </div>
+
+            <div class="error__message" id="error__message">
+                <img src="../../../view/public/icons/atention.svg" alt="Email ou senha incorretos">
             </div>
 
             <button class="register__button" id="register__button">login</button>
