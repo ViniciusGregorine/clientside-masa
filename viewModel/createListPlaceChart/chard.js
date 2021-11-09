@@ -1,5 +1,6 @@
 export function createChart(canvaNumber) {
     const ctx = document.getElementById(`place__graph${canvaNumber}`).getContext('2d');
+    console.log('context', ctx)
     var chart = new Chart(ctx, {
 
         // The type of chart we want to create
@@ -25,19 +26,20 @@ export function createChart(canvaNumber) {
 
         // Configuration options go here
         options: {
-            legend: {
-                display: true,
-                labels: {
-                    boxWidth: 15,
-                }
-            },
+   
+            responsive: true,
 
-            scales: {xAxes: [{
-                ticks: {
-                    autoSkip: true,
-                    maxTicksLimit: 5
-                }
-            }]}
+            scales: { 
+                xAxes: [{
+                    ticks: {
+                        textAlign: 'right',
+                        autoSkip: true,
+                        maxTicksLimit: 5,
+                        maxRotation: 0,
+                        minRotation: 0,       
+                    }
+                }]
+            }
         }
     })
     return chart
@@ -62,7 +64,17 @@ export const addData = async(chart, label, data1, data2) => {
 
 export const applyXFilter = async(chart) => {
     let labels = chart.data.labels
+    let quanty = 6
 
-   console.log('this is my house: ', labels)
+    labels.sort()
 
+    const tals = labels.map((element, index)=>{
+        return element < quanty
+    })
+
+    chart.data.labels.push()
+
+    console.log("chard test", tals)
+
+    chart.update()
 }
