@@ -23,11 +23,12 @@ h1{
     list-style-type: none;
     display: flex;
     flex-direction: column;
+    /* height: 500px; */
 }
 
 .place__list {
     position: relative; 
-    height: minmax(80vh, 500px);
+    height: minmax(80vh, 530px);
     width:80vw;
    
     
@@ -41,6 +42,7 @@ h1{
 
 .place__name {
     position: relative; 
+    /* padding-top: 100px; */
 
     width: 100%;
     font-family: sans-serif;
@@ -57,6 +59,7 @@ h1{
 .place__back {
     border-radius: 15px;
     margin: 1px;
+    padding: 6px;
     margin-bottom: 10px;
 }    
 
