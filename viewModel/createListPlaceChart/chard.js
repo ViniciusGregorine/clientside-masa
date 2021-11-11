@@ -49,6 +49,21 @@ export const addData = async(chart, label, data) => {
     chart.update();
 } 
 
+export const reAddData = async(chart, label, data) => {
+    chart.data.labels = []
+    chart.data.datasets[0].data = []
+
+    label.forEach(element => {
+        chart.data.labels.push(element);  
+    });
+
+    data.forEach(element => {
+        chart.data.datasets[0].data.push(element) 
+    });
+
+    chart.update();
+} 
+
 export const addChartLabel = async(chart, labelName) => {
     chart.data.datasets[0].label = labelName
     chart.update()

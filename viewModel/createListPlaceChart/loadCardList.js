@@ -1,7 +1,8 @@
-import {createChart, addData, addChartLabel} from './chard.js'
+import {createChart, addData, addChartLabel, reAddData} from './chard.js'
 import {getPlace, getReadingsByPlaceId} from '../../model/server/api.js'
 
-// creating LIs  with chad
+let contexts = []
+let placeId = []
 
 
 function sleep(ms) {
@@ -9,7 +10,6 @@ function sleep(ms) {
 }
 
 const loadList = async() => {
-  let contexts = []
   let keyIndex = 0
 
   let ul = document.getElementById('place')
@@ -32,6 +32,8 @@ const loadList = async() => {
 
     ul.appendChild(li)
     const readings = await getReadingsByPlaceId(place.id)
+    placeId.push(place.id)
+
 
     readings.forEach((reading, index) => {
       let div = document.createElement('div')
@@ -56,19 +58,49 @@ const loadList = async() => {
 
       contexts.push(placeChart)
 
-      addChartLabel(placeChart, reading.type_reading)
+      const label = `${reading.type_reading}  (${reading.prefix})`
+      addChartLabel(placeChart, label)
       addData(placeChart, dates, values)
 
       keyIndex++
     })
+  })
+
+}
+
+async function updateChart (){
+  let ctxIndex = 0
+  
+  placeId.forEach(async id => { 
+    const readings = await getReadingsByPlaceId(id)
     
-   console.log(contexts);
-  });
+    readings.forEach((reading, index) => {
+      let dates = []
+      let values = []
+      
+      reading.values.forEach(element => {
+        const formatDate = new Date(element.date).toLocaleDateString('pt-BR') 
+        
+
+        dates.push(`${formatDate} - ${element.hour}`)
+        values.push(element.value)
+
+      })
+       reAddData(contexts[ctxIndex], dates, values)
+      ctxIndex++
+    })
+  }) 
+}
+const asyncUpdate = async () => {
+  while(true){
+    try{
+      await sleep(8000)
+      await updateChart()    
+}catch{
+      console.log('error on loop');
+    }
+  }
 }
 
 loadList()
-
-// while (true){
-//   loadList()
-//   await sleep(2000)
-//   }
+asyncUpdate()
