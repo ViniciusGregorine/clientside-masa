@@ -3,7 +3,7 @@ function moveSidebar(){
     let width = sidebar.style.width;
 
     if(width === ""){
-      document.getElementById("sidebar").style.width = "190px";
+      document.getElementById("sidebar").style.width = "150px";
       document.getElementById("burgerMenu").style.position = "fixed";
       document.getElementById("burgerMenu").style.color = "black";
 

@@ -1,54 +1,106 @@
-import {createChart, addData, applyXFilter} from './chard.js'
-import {getPlace, getReadings, getReadingsByPlaceId} from '../../model/server/api.js'
+import {createChart, addData, addChartLabel, reAddData} from './chard.js'
+import {getPlace, getReadingsByPlaceId} from '../../model/server/api.js'
 
-// creating LIs  with chad
+let contexts = []
+let placeId = []
+
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 const loadList = async() => {
-    let ul = document.getElementById('place')
-    const places = await getPlace()
+  let keyIndex = 0
 
-    for (let index in places) {
-        let li = document.createElement('li')
+  let ul = document.getElementById('place')
 
-        li.innerHTML = `<li class="place__list">
-                            <span class="place__name">${places[index].description}</span>
-                            <div class="place__back" >
-                              <canvas class="place__graph" id="place__graph${index}" ></canvas>
-                            </div>
-                            <!-- <nav class="place__filter">
-                            <button class="place__button" onclick="applyXFilter(placeChart)">Hoje</button>
-                            <button class="place__button">3 meses</button>
-                            </nav> -->
-                        </li>`
+  const places = await getPlace()
 
-        ul.appendChild(li)
+  document.getElementById('place').style.height = '100%'
 
-        const placeChart = createChart(index)
-   
 
-        let arrayTemp = [] 
-        let arrayDate = []
-        let arrayHumi = []
+
+  places.forEach(async (place, placeIndex) => {
+    let li = document.createElement('li')
+
+    li.innerHTML = `
+      <div style="height: 6px;"></div>
+        <span class="place__name">${place.description}</span>    
+      <div style="height: 3px;"></div>`
+
+    li.classList.add("place__list")
+
+    ul.appendChild(li)
+    const readings = await getReadingsByPlaceId(place.id)
+    placeId.push(place.id)
+
+
+    readings.forEach((reading, index) => {
+      let div = document.createElement('div')
+      div.innerHTML = `
+      <canvas class="place__graph" id="place__graph${keyIndex}" key="${keyIndex}"></canvas>`
+      
+      div.classList.add('place__back')
+      li.appendChild(div)
+
+      const placeChart = createChart(keyIndex)
+      
+      
+      let dates = []
+      let values = []
+      
+      reading.values.forEach(element => {
+        const formatDate = new Date(element.date).toLocaleDateString('pt-BR') 
         
-      
-        try {
-           const readings = await getReadingsByPlaceId(places[index].id)
-           readings.forEach(element => {
-            arrayTemp.push(element.value_temperature)
-            arrayDate.push(element.hour)
-            arrayHumi.push(element.value_humidity)    
-          })
-        } catch (error) {
-          console.log(error)
-           throw new Error(error)
-        }
+        dates.push(`${formatDate} - ${element.hour}`)
+        values.push(element.value)
+      })
 
-        arrayDate = arrayDate.sort()
+      contexts.push(placeChart)
+
+      const label = `${reading.type_reading}  (${reading.prefix})`
+      addChartLabel(placeChart, label)
+      addData(placeChart, dates, values)
+
+      keyIndex++
+    })
+  })
+
+}
+
+async function updateChart (){
+  let ctxIndex = 0
   
-        addData(placeChart, arrayDate,  arrayTemp, arrayHumi) 
+  placeId.forEach(async id => { 
+    const readings = await getReadingsByPlaceId(id)
+    
+    readings.forEach((reading, index) => {
+      let dates = []
+      let values = []
       
-        applyXFilter(placeChart)
-    } 
+      reading.values.forEach(element => {
+        const formatDate = new Date(element.date).toLocaleDateString('pt-BR') 
+        
+
+        dates.push(`${formatDate} - ${element.hour}`)
+        values.push(element.value)
+
+      })
+       reAddData(contexts[ctxIndex], dates, values)
+      ctxIndex++
+    })
+  }) 
+}
+const asyncUpdate = async () => {
+  while(true){
+    try{
+      await sleep(8000)
+      await updateChart()    
+}catch{
+      console.log('error on loop');
+    }
+  }
 }
 
 loadList()
+asyncUpdate()

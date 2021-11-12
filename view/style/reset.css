@@ -5,10 +5,11 @@
    
   }
   
-  *,
+  p,
+  a,
   input,
   button {
-    font-family: Arial, sans-serif;
+    font-family: Roboto, Aria, sans-serif;
   }
   
   html,

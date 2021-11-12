@@ -9,60 +9,79 @@ export function createChart(canvaNumber) {
         data: {
             labels: [],
             datasets: [{
-                label: 'Temperatura',
+                label: '',
                 fill: false,
-                borderColor: '#FF3833',
+                borderColor:  '#475966',
                 data: []
-            },
-            {
-            label: 'Humidade',
-            fill: false,
-            borderColor: '#475966',
-            data: []
-            
             }]
         },
 
         // Configuration options go here
         options: {
-            legend: {
-                display: true,
-                labels: {
-                    boxWidth: 15,
-                }
-            },
+   
+            responsive: true,
 
-            scales: {xAxes: [{
-                ticks: {
-                    autoSkip: true,
-                    maxTicksLimit: 5
-                }
-            }]}
+            scales: { 
+                xAxes: [{
+                    ticks: {
+                        textAlign: 'right',
+                        autoSkip: true,
+                        maxTicksLimit: 5,
+                        maxRotation: 0,
+                        minRotation: 0,       
+                    }
+                }]
+            }
         }
     })
     return chart
 }
 
-export const addData = async(chart, label, data1, data2) => {
-    
+export const addData = async(chart, label, data) => {
     label.forEach(element => {
         chart.data.labels.push(element);  
     });
 
-    data1.forEach(element => {
+    data.forEach(element => {
         chart.data.datasets[0].data.push(element) 
-    });
-
-    data2.forEach(element => {
-        chart.data.datasets[1].data.push(element) 
     });
 
     chart.update();
 } 
 
+export const reAddData = async(chart, label, data) => {
+    chart.data.labels = []
+    chart.data.datasets[0].data = []
+
+    label.forEach(element => {
+        chart.data.labels.push(element);  
+    });
+
+    data.forEach(element => {
+        chart.data.datasets[0].data.push(element) 
+    });
+
+    chart.update();
+} 
+
+export const addChartLabel = async(chart, labelName) => {
+    chart.data.datasets[0].label = labelName
+    chart.update()
+}
+
+// lixo
 export const applyXFilter = async(chart) => {
-    let labels = chart.data.labels
+    let quanty = 6
 
-   console.log('this is my house: ', labels)
+    labels.sort()
 
+    const tals = labels.map((element, index)=>{
+        return element < quanty
+    })
+
+    chart.data.labels.push()
+
+    console.log("chard test", tals)
+
+    chart.update()
 }

@@ -36,19 +36,23 @@
             <div class="register__input">
                 <div class="input__container">
                     <h2 class="input__tittle">Email</h2>
-                    <input class="input__area" type="text" >
+                    <input class="input__area" id="email_input" type="text"  value="" >
                 </div>
                 <div class="input__container">
                     <h2 class="input__tittle">Senha</h2>
-                    <input class="input__area" type="password" >
+                    <input class="input__area" id="password_input" type="password"  value="">
                 </div>
             </div>
 
-            <button class="register__button">login</button>
+            <div class="error__message" id="error__message">
+                <img src="../../../view/public/icons/atention.svg" alt="Email ou senha incorretos">
+            </div>
+
+            <button class="register__button" id="register__button">login</button>
         </div>
 
     </main>
-    <footer class="footer">
+    <!-- <footer class="footer">
         <section class="footer__section">
             <h3 class="footer__item">Projeto</h3>
             <p class="footer__item">artigo</p>
@@ -62,8 +66,10 @@
             <p class="footer__item">Instituto Federal Catarinense (IFC)</p>
             <p class="footer__item"> contato: 48 996487855</p>
         </section>            
-    </footer>
+    </footer> -->
 
+    <script type="module" src="../../../viewModel/login/login.js"></script>
     <script src="../../../viewModel/sideBarFunciton/moveSidebar.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 </html>

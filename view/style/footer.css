@@ -3,10 +3,10 @@
     margin-top: 120px;
     min-height: 240px;
     background-color: #092134;
-
     position: sticky;    
+
     display: grid;
-    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-columns: 1000fr 1fr 1000fr;
     text-align: center;
     justify-items: center;
 
@@ -26,4 +26,21 @@
 
 .footer__item{
     margin-top: 15px;
+}
+
+.footer__section > p:hover{
+
+    text-decoration: underline;
+    color: #6B68FF;
+}
+
+.footer__section > p{
+    font-weight: lighter;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.footer__section > h3{
+    font-weight: normal;
+    font-size: 25px;
 }
