@@ -1,5 +1,7 @@
 // import { options } from "./options"
 
+import { login } from "./auth.js"
+
 export const getPlace= async() => {
     try {
      const {data}  = await axios.get('http://localhost:3456/place')
@@ -31,12 +33,17 @@ export const getReadingsByPlaceId = async(placeId) => {
   }
  
   
-export const getJwtToken = async(email, password) => {
+export const loginUser = async(email, password) => {
 	try {
-	 const {data}  = await axios.get(`http://localhost:3456/login`, options)
-	 console.log(data)
-	 return data
-      
+	 const {data}  = await axios.get(`http://localhost:3456/login`, {
+          headers: {
+               'password': `${password}`,
+               'email': `${email}`
+          }
+      })
+
+      login(data.message)
+	 return data.status
 	} catch (error) {
 		 console.error(error)
 	}
