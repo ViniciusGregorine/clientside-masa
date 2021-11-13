@@ -1,5 +1,5 @@
-import {createChart, addData, addChartLabel, reAddData} from './chard.js'
-import {getPlace, getReadingsByPlaceId} from '../../model/server/api.js'
+import {createChart, addData, addChartLabel, reAddData} from '../../../viewModel/chart/chart.js'
+import {getPlace, getReadingsByPlaceId} from '../../../model/server/api.js'
 
 /*
 chartByPlaceIds = [

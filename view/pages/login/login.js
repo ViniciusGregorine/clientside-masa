@@ -1,4 +1,4 @@
-import { loginUser } from "../../model/server/api.js"
+import { loginUser } from "../../../model/server/api.js"
 
 const loginButton = document.getElementById('register__button')
 loginButton.addEventListener('click', loginHandler)
