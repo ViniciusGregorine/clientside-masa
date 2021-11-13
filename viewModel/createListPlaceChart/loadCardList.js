@@ -1,9 +1,7 @@
 import {createChart, addData, addChartLabel, reAddData} from './chard.js'
 import {getPlace, getReadingsByPlaceId} from '../../model/server/api.js'
 
-let contexts = []
-let placeId = []
-
+let placeGraph = []
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -32,7 +30,8 @@ const loadList = async() => {
 
     ul.appendChild(li)
     const readings = await getReadingsByPlaceId(place.id)
-    placeId.push(place.id)
+
+    placeGraph.push({id: place.id, chart: []})
 
 
     readings.forEach((reading, index) => {
@@ -56,45 +55,51 @@ const loadList = async() => {
         values.push(element.value)
       })
 
-      contexts.push(placeChart)
-
+      
       const label = `${reading.type_reading}  (${reading.prefix})`
       addChartLabel(placeChart, label)
       addData(placeChart, dates, values)
+      
+      placeGraph[placeIndex]['chart'].push({type_reading: reading.type_reading, ctx: placeChart})
 
       keyIndex++
     })
   })
-
 }
 
 async function updateChart (){
   let ctxIndex = 0
   
-  placeId.forEach(async id => { 
-    const readings = await getReadingsByPlaceId(id)
+  placeGraph.forEach(async entity => { 
+    const readings = await getReadingsByPlaceId(entity.id)
     
-    readings.forEach((reading, index) => {
+    readings.forEach((reading) => {
       let dates = []
       let values = []
+
+      entity.chart.forEach(entity => {
+          if (entity.type_reading == reading.type_reading){
+            reading.values.forEach(element => {
+              const formatDate = new Date(element.date).toLocaleDateString('pt-BR') 
+              
+              dates.push(`${formatDate} - ${element.hour}`)
+              values.push(element.value)
       
-      reading.values.forEach(element => {
-        const formatDate = new Date(element.date).toLocaleDateString('pt-BR') 
-        
-
-        dates.push(`${formatDate} - ${element.hour}`)
-        values.push(element.value)
-
-      })
-       reAddData(contexts[ctxIndex], dates, values)
+            })
+             reAddData(entity.ctx, dates, values)
+          }
+        })
+      
+    
       ctxIndex++
     })
   }) 
 }
+
 const asyncUpdate = async () => {
   while(true){
     try{
-      await sleep(8000)
+      await sleep(6000)
       await updateChart()    
 }catch{
       console.log('error on loop');
