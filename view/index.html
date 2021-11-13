@@ -12,25 +12,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script> 
+        $(function(){
+          $("#componentFooter").load("/view/components/footer.html") 
+          $("#componentSidebar").load("/view/components/sidebar.html")
+          $("#componentMenu").load("/view/components/header.html")
+        });
+    </script> 
+    
 </head>
 <body>
-    <header class="menu">
-        <div class="menu__section left">
-            <img class="menu__icon" id="burgerMenu" src="./public/icons/burger.svg" alt="burger" onclick="moveSidebar()">
-        </div>
+    <div id="componentMenu"></div>
+    <div id="componentSidebar"></div>
 
-        <div class="menu__section right">
-            <a class="menu__link" href="#">sobre</a>
-            <a class="menu__link" href="./pages/login/login.html">login</a>
-        </div>
-    </header>
-    <nav class="sidebar" id="sidebar">
-        <div class="sidebar__options">
-            <a href="./pages/place/place.html">Ambientes</a>
-            <a href="#">Sensores</a>
-            <a href="#">Instituições</a>
-        </div>
-    </nav>
     <main class="content" id="content">
         <div class="content__hereo">
 
@@ -55,22 +50,8 @@
             <p class="content__paragraph black">Aplicou-se o arduino no monitoramento de dados a partir de sensores acoplados a ele, o arduino envia tais dados para o servidor Mysql. A extração desses dados do servidor é dada por uma API em nodeJs com express, que extrai e trata estes dados, disponibilzando em rotas http para qualquer interface  consumir.</p>
         </article>
     </main>
-    <footer class="footer">
-        <section class="footer__section">
-            <h3 class="footer__item">Projeto</h3>
-            <p class="footer__item">artigo</p>
-            <p class="footer__item">GitHub</p>
-        </section>
-        <section class="footer__section">
-            <div class="footer__line"></div>
-        </section>
-        <section class="footer__section">
-            <h3 class="footer__item">Instituição</h3>
-            <p class="footer__item">Instituto Federal Catarinense (IFC)</p>
-            <p class="footer__item">ifc@exemplo.com</p>
-        </section>            
-    </footer>
-
+    <div id="componentFooter"></div>
+  
     <script src="../viewModel/sideBarFunciton/moveSidebar.js"></script>
 </body>
 </html>
