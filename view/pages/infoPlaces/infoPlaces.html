@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="../../style/style.css">
         <link rel="stylesheet" href="../../style/reset.css">
         <link rel="stylesheet" href="../../style/footer.css">
+        <link rel="stylesheet" href="../place/place.css">
         <link rel="stylesheet" href="./infoplaces.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -21,19 +22,21 @@
             });
         </script> 
     </head>
-
-    
     <body>
         <div id="componentMenu"></div>
         <div id="componentSidebar"></div>
      
         <main>
             <h1>Ambientes</h1>
+            <ul id="place__ul">
+            </ul>
         </main>
         <div id="componentFooter"></div>
 
         <!-- scripts -->
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="../../../viewModel/sideBarFunciton/moveSidebar.js"></script>
+        <script type="module" src="./infoPlaces.js"></script>
+        <script src="../../../model/server/api.js"></script>
     </body>
 </html>

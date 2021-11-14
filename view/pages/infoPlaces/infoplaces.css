@@ -1,3 +1,37 @@
+#place__ul{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 60px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
 .menu{
     background-color: #092134;
+}
+
+.place__list{
+    margin-bottom: 60px;
+    width: 40vw;
+
+}
+
+.place__description{
+    padding-top: 1rem;
+}
+
+.place__informations {
+    display: flex;
+    justify-content: space-between;
+
+   padding: 1rem 1rem; 
+}
+
+.place_informations__item {
+    font-weight: bold;
+    color: #a7a7a7;
+}
+
+.place_informations__item > p {
+    color: black;
 }
