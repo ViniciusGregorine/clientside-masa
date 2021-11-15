@@ -23,3 +23,13 @@
     flex-direction: column;
     background-color: #F0F0F7;
   }
+
+  :root{
+    --white: #FFF;
+
+    --gray-50: #F7F8FA;
+    --gray-100: #E6E8EB;
+    --gray-200: #AFB2B1;
+    --gray-500: #808080;
+    --gray-800: #6c726f;
+  }
