@@ -11,15 +11,15 @@ async function loadPlaces(){
         li.innerHTML = `
         <div class="card__wrapper">
         <h2 class="card__tittle">${place.description}</h2>
-        <section class="place__description">
-            <p>${place.note}</p>
+        <div class="card__content">
+            <p class="card__paragraph">${place.note}</p>
             <div class="place__informations">
-            <div class="place_informations__item">material:<p> ${place.material}</p></div> 
-                <div class="place_informations__item">altura:<p> ${place.height}</p></div>
-                <div class="place_informations__item">largura: <p> ${place.width}</p></div>
-                <div class="place_informations__item">comprimento: <p> ${place.length}</p></div>
+            <div class="card__paragraph">material:<p> ${place.material}</p></div> 
+                <div class="card__paragraph">altura:<p> ${place.height}</p></div>
+                <div class="card__paragraph">largura: <p> ${place.width}</p></div>
+                <div class="card__paragraph">comprimento: <p> ${place.length}</p></div>
             </div>
-        </section>
+        </div>
         </div>
         `
     

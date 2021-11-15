@@ -8,10 +8,6 @@
 
 }
 
-.place__description{
-    padding-top: 1rem;
-}
-
 .place__informations {
     display: flex;
     justify-content: space-between;
@@ -19,11 +15,3 @@
    padding: 1rem 1rem; 
 }
 
-.place_informations__item {
-    font-weight: bold;
-    color: #a7a7a7;
-}
-
-.place_informations__item > p {
-    color: black;
-}
