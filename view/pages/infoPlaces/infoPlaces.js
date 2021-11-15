@@ -9,7 +9,8 @@ async function loadPlaces(){
         let li = document.createElement('li')
 
         li.innerHTML = `
-        <h2 class="place__name">${place.description}</h2>
+        <div class="card__wrapper">
+        <h2 class="card__tittle">${place.description}</h2>
         <section class="place__description">
             <p>${place.note}</p>
             <div class="place__informations">
@@ -18,9 +19,11 @@ async function loadPlaces(){
                 <div class="place_informations__item">largura: <p> ${place.width}</p></div>
                 <div class="place_informations__item">comprimento: <p> ${place.length}</p></div>
             </div>
-        </section>`
+        </section>
+        </div>
+        `
     
-        li.classList.add("place__list")
+        li.classList.add("card__section")
 
         ul.appendChild(li)
     
