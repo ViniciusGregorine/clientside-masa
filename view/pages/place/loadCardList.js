@@ -32,16 +32,22 @@ const loadList = async() => {
 
   places.forEach(async (place, placeIndex) => {
     let li = document.createElement('li')
+    let wrapper = document.createElement('div')
 
-    li.innerHTML = `
-      <div style="height: 6px;"></div>
-        <span class="place__name">${place.description}</span>    
-      <div style="height: 3px;"></div>`
-
-    li.classList.add("place__list")
-
-    ul.appendChild(li)
     const readings = await getReadingsByPlaceId(place.id)
+
+    wrapper.innerHTML = `
+        <span class="card__tittle">${place.description}</span>  
+      `
+
+    wrapper.classList.add('card__wrapper')
+
+    li.classList.add("card__section")
+    li.classList.add("place__section--graph")
+
+    li.appendChild(wrapper)
+    ul.appendChild(li)
+
 
     chartByPlaceIds.push({id: place.id, chart: []})
 
@@ -49,10 +55,13 @@ const loadList = async() => {
     readings.forEach((reading) => {
       let div = document.createElement('div')
       div.innerHTML = `
-      <canvas class="place__graph" id="place__graph${keyIndex}" key="${keyIndex}"></canvas>`
+      <div class="card__content">
+      <canvas class="place__graph" id="place__graph${keyIndex}" key="${keyIndex}"></canvas>
+      </div>
+      `
       
       div.classList.add('place__back')
-      li.appendChild(div)
+      wrapper.appendChild(div)
 
       const placeChart = createChart(keyIndex)
       
