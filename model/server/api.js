@@ -1,5 +1,3 @@
-// import { options } from "./options"
-
 import { login } from "./auth.js"
 
 export const getPlace= async() => {
@@ -11,7 +9,17 @@ export const getPlace= async() => {
          console.error(error)
     }
   }
- 
+
+export const getSensor= async() => {
+     try {
+          const {data}  = await axios.get('http://localhost:3456/sensor')
+
+          return data.message
+     } catch (error) {
+          console.error(error)
+     }
+}
+
 export const getReadings= async() => {
      try {
       const {data}  = await axios.get('http://localhost:3456/reading')
