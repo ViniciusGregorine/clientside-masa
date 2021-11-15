@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sensores</title>
+
+        
+        <link rel="stylesheet" href="../../style/style.css">
+        <link rel="stylesheet" href="../../style/reset.css">
+        <link rel="stylesheet" href="../../style/footer.css">
+        <link rel="stylesheet" href="../place/place.css">
+        <link rel="stylesheet" href="/view/style/card.css">
+        <!-- <link rel="stylesheet" href="./infoplaces.css"> -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script> 
+            $(function(){
+                $("#componentFooter").load("/view/components/footer.html") 
+                $("#componentSidebar").load("/view/components/sidebar.html")
+                $("#componentMenu").load("/view/components/header.html")
+            });
+        </script> 
+    </head>
+    <body>
+        <div id="componentMenu"></div>
+        <div id="componentSidebar"></div>
+     
+        <main>
+            <h1>Sensores</h1>
+            <ul class="card"id="card">
+                <li class="card__section">
+                    <div class="card__wrapper">
+                        <h2 class="card__tittle">Titulo do card</h2>
+                        <div class="card__content">
+                            <p class="card__paragraph">conteudo do card</p>
+                        </div>
+                    </div>  
+                </li>
+                <li class="card__section">
+                    <div class="card__wrapper">
+                        <h2 class="card__tittle">Titulo do card</h2>
+                        <div class="card__content">
+                            <p class="card__paragraph">conteudo do card</p>
+                        </div>
+                    </div>  
+                </li>
+                <li class="card__section">
+                    <div class="card__wrapper">
+                        <h2 class="card__tittle">Titulo do card</h2>
+                        <div class="card__content">
+                            <p class="card__paragraph">conteudo do card</p>
+                        </div>
+                    </div>  
+                </li>
+                <li class="card__section">
+                    <div class="card__wrapper">
+                        <h2 class="card__tittle">Titulo do card</h2>
+                        <div class="card__content">
+                         <p class="card__paragraph">conteudo do card</p>
+                        </div>
+                    </div>  
+                </li>
+            </ul>
+        </main>
+        <div id="componentFooter"></div>
+
+        <!-- scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="../../../viewModel/sideBarFunciton/moveSidebar.js"></script>
+        <script src="../../../model/server/api.js"></script>
+    </body>
+</html>
