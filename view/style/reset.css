@@ -9,7 +9,7 @@
   p,
   a,
   input,
-  button {
+  button, label, div{
     font-family: Roboto, Aria, sans-serif;
   }
   
