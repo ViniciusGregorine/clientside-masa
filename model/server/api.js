@@ -23,6 +23,17 @@ export const getSensor= async() => {
      }
 }
 
+export const getTypeReadings= async() => {
+     try {
+      const {data}  = await axios.get('/type-reading')
+      console.log(data)
+  
+      return data.message 
+     } catch (error) {
+          console.error(error)
+     }
+}
+
 export const getReadings= async() => {
      try {
       const {data}  = await axios.get('/reading')
