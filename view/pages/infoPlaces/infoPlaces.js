@@ -1,4 +1,4 @@
-import { getPlace } from "../../../model/server/api.js"
+import { getPlace, postPlace } from "../../../model/server/api.js"
 
 async function loadPlaces(){
     let ul = document.getElementById('place__ul')
@@ -29,5 +29,27 @@ async function loadPlaces(){
     
     });
 }
+
+async function submitPlace(){
+    const descriptionValue = document.getElementById('description_input').value
+    const noteValue = document.getElementById('note_input').value
+    const materialValue = document.getElementById('material_input').value
+    const heightValue = document.getElementById('height_input').value
+    const widthValue = document.getElementById('width_input').value
+    const lengthValue = document.getElementById('length_input').value
+
+    try {
+        const status = await postPlace(descriptionValue, noteValue, materialValue, heightValue, lengthValue, widthValue)
+         if(status === 200) location.reload();
+  
+    } catch (error) {
+        console.log('errorer', error)
+    }
+}
+
+const btn = document.getElementById('register__button')
+
+btn.addEventListener('click', submitPlace)
+
 
 loadPlaces()
