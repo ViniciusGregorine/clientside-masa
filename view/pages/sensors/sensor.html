@@ -10,9 +10,9 @@
         <link rel="stylesheet" href="../../style/style.css">
         <link rel="stylesheet" href="../../style/reset.css">
         <link rel="stylesheet" href="../../style/footer.css">
-        <link rel="stylesheet" href="../place/place.css">
+        <link rel="stylesheet" href="/view/style/register.css">
+        <link rel="stylesheet" href="./sensor.css">
         <link rel="stylesheet" href="/view/style/card.css">
-        <!-- <link rel="stylesheet" href="./infoplaces.css"> -->
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script> 
@@ -26,15 +26,53 @@
     <body>
         <div id="componentMenu"></div>
         <div id="componentSidebar"></div>
-     
+
+        
         <main>
             <h1>Sensores</h1>
+            <div class="register__container" id="register">
+                <div class="register__section"> 
+                    <h1 class="register__tittle">Novo sensor</h1>
+                    <div class="register__"></div>
+                    <div class="register__input">
+                        <div class="input__container">
+                            <h2 class="input__tittle">Nome</h2>
+                            <input class="input__area" id="email_input" type="text"  value="" >
+                        </div>
+                    </div>
+                        <div class="register__input">   
+                            <div class="input__container">
+                                <h2 class="input__tittle">Situação</h2>
+                                <label for="cars">Choose a car:</label>
+                                <select name="cars" id="cars" multiple>
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="opel">Opel</option>
+                                <option value="audi">Audi</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="register__input">
+                            <div class="input__container">
+                                <h2 class="input__tittle">Gap de leitura</h2>
+                                <input type="number" name="" id="">
+                            </div>
+                        </div>
+                    <div class="register__buttons">
+                        <button class="register__button" id="register__button">criar</button>
+                        <button class="register__button register__button--cancel" onclick="closeForm()">Cancelar</button>
+                    </div>  
+                </div>
+            </div>
             <ul class="card"id="card">
             </ul>
+
+            <button class="crud_button" onclick="openForm()">+</button>
         </main>
         <div id="componentFooter"></div>
 
         <!-- scripts -->
+        <script src="/viewModel/form.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="../../../viewModel/sideBarFunciton/moveSidebar.js"></script>
         <script type="module" src="./sensor.js"></script>
