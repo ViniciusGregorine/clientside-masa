@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="../../style/reset.css">
         <link rel="stylesheet" href="../../style/footer.css">
         <link rel="stylesheet" href="/view/style/card.css">
+        <link rel="stylesheet" href="/view/style/register.css">
         <link rel="stylesheet" href="./infoplaces.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -28,12 +29,62 @@
      
         <main>
             <h1>Ambientes</h1>
+
+            <div class="register__container" id="register">
+                <div class="register__section"> 
+                    <h1 class="register__tittle">Novo Ambiente</h1>
+                    <div class="register__"></div>
+                    <div class="register__input">
+                        <div class="input__container">
+                            <h2 class="input__tittle">Nome</h2>
+                            <input class="input__area" id="email_input" type="text"  value="" >
+                        </div>
+                    </div>
+                       
+                    <div class="register__input">
+                        <div class="input__container">
+                            <h2 class="input__tittle">Anotações (200 palavras)</h2>
+                            <textarea name="" id="" cols="70" rows="5"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="register__input">
+                        <div class="input__container">
+                            <h2 class="input__tittle">Material</h2>
+                            <input class="input__area" id="email_input" type="text"  value="" >
+                        </div>
+                    </div>
+                    <div class="register__input" style="display: flex; gap: 2px;">
+                        <div class="input__container">
+                            <h2 class="input__tittle">Altura (cm)</h2>
+                            <input class="input__area" id="email_input" type="number"  value="" >
+                        </div>
+                        <div class="input__container">
+                            <h2 class="input__tittle">Largura (cm)</h2>
+                            <input class="input__area" id="email_input" type="number"  value="" >
+                        </div>
+                        <div class="input__container">
+                            <h2 class="input__tittle">Profundidade(cm)</h2>
+                            <input class="input__area" id="email_input" type="number"  value="" >
+                        </div>
+                    </div>
+
+                    <div class="register__buttons">
+                        <button class="register__button" id="register__button">criar</button>
+                        <button class="register__button register__button--cancel" onclick="closeForm()">Cancelar</button>
+                    </div>  
+                </div>
+            </div>
+
+
             <ul class="card" id="place__ul">
             </ul>
         </main>
+        <button class="crud_button" onclick="openForm()">+</button>
         <div id="componentFooter"></div>
 
         <!-- scripts -->
+        <script src="/viewModel/form.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="../../../viewModel/sideBarFunciton/moveSidebar.js"></script>
         <script type="module" src="./infoPlaces.js"></script>
