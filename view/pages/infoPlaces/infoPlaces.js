@@ -11,6 +11,8 @@ async function loadPlaces(){
         li.innerHTML = `
         <div class="card__wrapper">
         <h2 class="card__tittle">${place.description}</h2>
+        <p class="card__paragraph card__paragraph--id">Id: ${place.id}</p>
+        <img class="card__trash" src="/view/public/icons/icon-trash.svg" alt="imagem"></img>
         <div class="card__content">
             <p class="card__paragraph">${place.note}</p>
             <div class="place__informations">
