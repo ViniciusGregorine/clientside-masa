@@ -7,10 +7,22 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+    position: relative;
 }
 
 .card__wrapper{
-    margin: 1vh 1vh;
+    margin: 1vh 0.5vw;
+}
+
+.card__trash{
+    color: #a3a3a3;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+
+    top: 1.01vh;
+    right: 0.8vw;
+
 }
 .card__section{
     position: relative; 
@@ -36,6 +48,7 @@
     font-size: calc(14px + (28 - 14) * ((100vw - 300px) / (1600 - 300)));
     line-height: 30px;
 
+    /* float: left; */
     color: var(--gray-800);
 }
 
@@ -46,4 +59,14 @@
 .card__paragraph{
     font-weight: 600;
     color: var(--gray-500);
+}
+.card__paragraph--id{
+    color: var(--gray-800);
+    font-size: calc(14px + (24 - 14) * ((100vw - 300px) / (1600 - 300)));
+    font-weight: 00;
+
+    position: absolute;
+
+    top: 1.5vh;
+    left: 0.8vw;
 }
