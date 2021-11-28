@@ -1,6 +1,7 @@
 import { login, getToken, logout } from "./auth.js"
 
 axios.defaults.headers.post['x-acess-token'] = getToken();
+axios.defaults.headers.delete['x-acess-token'] = getToken();
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 axios.defaults.baseURL = 'http://localhost:3456'
@@ -84,6 +85,23 @@ export const postPlace = async(description, note, material, height, length, widt
                width
           })
           return status 
+     } catch (error) {
+          console.log('erro on post', error)
+          
+          if(error.response.status === 401) {
+               logout()
+               location.href = 'http://localhost:5500/view/pages/login/login.html'
+          }
+     }
+}
+
+export const deletePlace = async (description) => {
+     try {
+          const {status} = await axios.delete('/place', {
+               description
+          })
+          return status 
+          
      } catch (error) {
           console.log('erro on post', error)
           
