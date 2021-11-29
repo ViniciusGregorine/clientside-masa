@@ -26,6 +26,42 @@ export const getSensor= async() => {
      }
 }
 
+export const postSensor = async(description, situation, gap) => {
+     try {
+          const {status} = await axios.post('/sensor', {
+               description, 
+               situation, 
+               gap
+          })
+          return status 
+     } catch (error) {
+          console.log('erro on post', error)
+          
+          if(error.response.status === 401) {
+               logout()
+               location.href = 'http://localhost:5500/view/pages/login/login.html'
+          }
+     }
+}
+
+
+
+export const deleteSensor = async (description) => {
+     try {
+          const {status} = await axios.delete(`/sensor?description=${description}`)
+          return status 
+          
+     } catch (error) {
+          console.log('erro on post', error)
+          
+          if(error.response.status === 401) {
+               logout()
+               location.href = 'http://localhost:5500/view/pages/login/login.html'
+          }
+     }
+}
+ 
+
 export const getTypeReadings= async() => {
      try {
       const {data}  = await axios.get('/type-reading')
