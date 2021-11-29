@@ -1,4 +1,4 @@
-import { getSensor } from "../../../model/server/api.js"
+import { getSensor, postSensor } from "../../../model/server/api.js"
 
 async function loadSensor(){
     let ul = document.getElementById('card')
@@ -29,5 +29,25 @@ async function loadSensor(){
         ul.appendChild(li)
     });
 }
+
+
+async function submitSensor(){
+    console.log('asjdlfj')
+    const descriptionValue = document.getElementById('description_input').value
+    const situationValue = document.getElementById('situation_input').value
+    const gapValue = document.getElementById('gap_input').value
+
+    try {
+        const status = await postSensor(descriptionValue, situationValue, gapValue)
+         if(status === 200) location.reload();
+
+    } catch (error) {
+        console.log('errorer', error)
+    }
+}
+
+const btn = document.getElementById('register__button')
+
+btn.addEventListener('click', submitSensor)
 
 loadSensor()
