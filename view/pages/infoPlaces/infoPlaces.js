@@ -1,17 +1,13 @@
-import { deletePlace, getPlace, postPlace } from "../../../model/server/api.js"
-import { isAuthenticated } from "../../../model/server/auth.js"
+import { deleteEntity, getPlace, postPlace } from "../../../model/server/api.js"
+import { userAdmin } from "../../../viewModel/userLogin.js";
 
-function userAdmin(){
-    if(isAuthenticated()) {
-        return 'admin'
-    }
-    return 'user'
-}
+
+
 
 export async function deletePlaceController(description) {
     try {
         console.log(description)
-        const status = await deletePlace(description)
+        const status = await deleteEntity('place', description)
         if(status === 200) location.reload();
     }catch (error) {
         console.log('ocorreu um erro')    
