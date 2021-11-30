@@ -16,18 +16,29 @@
 
 .card__trash{
     color: #a3a3a3;
+
+    margin: auto;
     width: 26px;
     height: 26px;
-    position: absolute;
+}
 
+.card__trash--button {
+    cursor: pointer;
+
+    position: absolute;
     top: 1.01vh;
     right: 0.8vw;
 
+    width: 21px;
+    height: 26px;
+    border: none;
+    background-color: #fff;
 }
+
 .card__section{
     position: relative; 
     
-    width: 60vmin;
+    width: 65vmin;
  
     text-align: center;
     margin: 0 auto 10vh;
