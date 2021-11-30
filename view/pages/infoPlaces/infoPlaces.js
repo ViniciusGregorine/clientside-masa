@@ -1,4 +1,22 @@
-import { getPlace, postPlace } from "../../../model/server/api.js"
+import { deletePlace, getPlace, postPlace } from "../../../model/server/api.js"
+import { isAuthenticated } from "../../../model/server/auth.js"
+
+function userAdmin(){
+    if(isAuthenticated()) {
+        return 'admin'
+    }
+    return 'user'
+}
+
+export async function deletePlaceController(description) {
+    try {
+        console.log(description)
+        const status = await deletePlace(description)
+        if(status === 200) location.reload();
+    }catch (error) {
+        console.log('ocorreu um erro')    
+    }
+}
 
 async function loadPlaces(){
     let ul = document.getElementById('place__ul')
@@ -11,8 +29,10 @@ async function loadPlaces(){
         li.innerHTML = `
         <div class="card__wrapper">
         <h2 class="card__tittle">${place.description}</h2>
-        <p class="card__paragraph card__paragraph--id">Id: ${place.id}</p>
-        <img class="card__trash" src="/view/public/icons/icon-trash.svg" alt="imagem"></img>
+        <p class="card__paragraph card__paragraph--id ${userAdmin()}">Id: ${place.id}</p>
+        <button type="button" class="card__trash--button  ${userAdmin()}" value="${place.description}"/>
+            <img class="card__trash" src="/view/public/icons/icon-trash.svg" alt="${place.description}"></img>
+        </button>
         <div class="card__content">
             <p class="card__paragraph">${place.note}</p>
             <div class="place__informations">
@@ -24,11 +44,9 @@ async function loadPlaces(){
         </div>
         </div>
         `
-    
-        li.classList.add("card__section")
 
-        ul.appendChild(li)
-    
+        li.classList.add("card__section")
+        ul.appendChild(li)    
     });
 }
 
@@ -50,8 +68,12 @@ async function submitPlace(){
 }
 
 const btn = document.getElementById('register__button')
-
 btn.addEventListener('click', submitPlace)
 
+
+// jquery for multiples delete buttons
+$(document).on("click", ".card__trash--button", event => {
+    deletePlaceController(event.target.alt)
+})
 
 loadPlaces()
