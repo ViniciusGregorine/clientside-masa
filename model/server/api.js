@@ -131,9 +131,9 @@ export const postPlace = async(description, note, material, height, length, widt
      }
 }
 
-export const deletePlace = async (description) => {
+export const deleteEntity = async (rote, description) => {
      try {
-          const {status} = await axios.delete(`/place?description=${description}`)
+          const {status} = await axios.delete(`/${rote}?description=${description}`)
           return status 
           
      } catch (error) {
