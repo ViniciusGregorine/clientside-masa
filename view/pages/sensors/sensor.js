@@ -1,4 +1,5 @@
-import { getSensor, postSensor } from "../../../model/server/api.js"
+import { deleteEntity, getSensor, postSensor } from "../../../model/server/api.js"
+import { userAdmin } from "../../../viewModel/userLogin.js";
 
 async function loadSensor(){
     let ul = document.getElementById('card')
@@ -15,6 +16,10 @@ async function loadSensor(){
         <div class="card__wrapper">
        
             <h2 class="card__tittle">${sensor.description}</h2>
+            <p class="card__paragraph card__paragraph--id ${userAdmin()}">Id: ${sensor.id}</p>
+            <button type="button" class="card__trash--button  ${userAdmin()}" value="${sensor.description}"/>
+                <img class="card__trash" src="/view/public/icons/icon-trash.svg" alt="${sensor.description}"></img>
+            </button>
             <div class="card__content">
                 <p class="card__paragraph">${formatDate}</p>
                 <p class="card__paragraph">${device()}</p>
@@ -47,7 +52,21 @@ async function submitSensor(){
 }
 
 const btn = document.getElementById('register__button')
-
 btn.addEventListener('click', submitSensor)
+
+async function deleteSensorController(description) {
+    try {
+        console.log(description)
+        const status = await deleteEntity('sensor', description)
+        if(status === 200) location.reload();
+    }catch (error) {
+        console.log('ocorreu um erro')    
+    }
+}
+
+$(document).on("click", ".card__trash--button", event => {
+    deleteSensorController(event.target.alt)
+})
+
 
 loadSensor()
