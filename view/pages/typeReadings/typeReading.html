@@ -12,6 +12,8 @@
         <link rel="stylesheet" href="../../style/footer.css">
         <link rel="stylesheet" href="/view/style/card.css">
         <link rel="stylesheet" href="./typeReading.css">
+        <link rel="stylesheet" href="/view/style/user.css">
+        <link rel="stylesheet" href="/view/style/register.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script> 
@@ -30,10 +32,47 @@
             <h1>Tipo de leituras</h1>
             <ul class="card" id="card">
             </ul>
+
+
+            <div class="register__container" id="register">
+                <div class="register__section"> 
+                    <h1 class="register__tittle">Novo Ambiente</h1>
+                    <div class="register__input">
+                        <div class="input__container">
+                            <h2 class="input__tittle">Nome</h2>
+                            <input class="input__area" id="description_input" type="text"  value="" >
+                        </div>
+                    </div>
+                       
+                    <div class="register__input" style="display: flex; gap: 2px;">
+                        <div class="input__container">
+                            <h2 class="input__tittle">Prefixo</h2>
+                            <input class="input__area" id="prefix_input" type="number">
+                        </div>
+                        <div class="input__container">
+                            <h2 class="input__tittle">Valor Mínimo</h2>
+                            <input class="input__area" id="min_input" type="number">
+                        </div>
+                        <div class="input__container">
+                            <h2 class="input__tittle">Valor Máximo</h2>
+                            <input class="input__area" id="max_input" type="number">
+                        </div>
+                    </div>
+
+                    <div class="register__buttons">
+                        <button class="register__button" id="register__button">criar</button>
+                        <button class="register__button register__button--cancel" onclick="closeForm()">Cancelar</button>
+                    </div>  
+                </div>
+            </div>
         </main>
+        <button class="crud_button" onclick="openForm()">+</button>
+
         <div id="componentFooter"></div>
 
         <!-- scripts -->
+        <script src="/viewModel/userLogin.js"></script>
+        <script src="/viewModel/form.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="../../../viewModel/sideBarFunciton/moveSidebar.js"></script>
         <script type="module" src="./typeReading.js"></script>
