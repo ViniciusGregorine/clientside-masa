@@ -6,6 +6,8 @@ axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 axios.defaults.baseURL = 'http://localhost:3456'
 
+const loginPage = 'http://localhost:5500/view/pages/login/login.html'
+
 export const getPlace= async() => {
     try {
      const {data}  = await axios.get('/place')
@@ -39,7 +41,7 @@ export const postSensor = async(description, situation, gap) => {
           
           if(error.response.status === 401) {
                logout()
-               location.href = 'http://localhost:5500/view/pages/login/login.html'
+               location.href = loginPage
           }
      }
 }
@@ -56,7 +58,7 @@ export const deleteSensor = async (description) => {
           
           if(error.response.status === 401) {
                logout()
-               location.href = 'http://localhost:5500/view/pages/login/login.html'
+               location.href = loginPage
           }
      }
 }
@@ -126,7 +128,26 @@ export const postPlace = async(description, note, material, height, length, widt
           
           if(error.response.status === 401) {
                logout()
-               location.href = 'http://localhost:5500/view/pages/login/login.html'
+               location.href = loginPage
+          }
+     }
+}
+
+export const postTypeReading = async(description, prefix, min_value, max_value) => {
+     try {
+          const {status} = await axios.post('/type-reading', {
+               description, 
+               prefix, 
+               min_value,
+               max_value
+          })
+          return status 
+     } catch (error) {
+          console.log('erro on post', error)
+          
+          if(error.response.status === 401) {
+               logout()
+               location.href = loginPage
           }
      }
 }
@@ -141,7 +162,7 @@ export const deleteEntity = async (rote, description) => {
           
           if(error.response.status === 401) {
                logout()
-               location.href = 'http://localhost:5500/view/pages/login/login.html'
+               location.href = loginPage
           }
      }
 }
