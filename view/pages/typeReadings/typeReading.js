@@ -17,6 +17,7 @@ async function loadTypeReadings(){
                 <div class="card__paragraph">valor máximo:<p> ${typeReading.max_value}</p></div>
                 <div class="card__paragraph">valor mínimo:<p> ${typeReading.min_value}</p></div>
             </div>
+            <p class="card__paragraph card__paragraph--id ${userAdmin()}">Id: ${typeReading.id}</p>
             <button type="button" class="card__trash--button  ${userAdmin()}" value="${typeReading.description}"/>
             <img class="card__trash" src="/view/public/icons/icon-trash.svg" alt="${typeReading.description}"></img>
         </button>
