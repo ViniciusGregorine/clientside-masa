@@ -22,9 +22,9 @@ async function loadSensor(){
             </button>
             <div class="card__content">
                 <p class="card__paragraph">${formatDate}</p>
-                <p class="card__paragraph">${device()}</p>
+               <!-- <p class="card__paragraph">${device()}</p> -->
                 <p class="card__paragraph">${sensor.situation}</p>
-                <p class="card__paragraph">${sensor.second_gap}</p>
+                <p class="card__paragraph">Espaçamento entre leituras: ${sensor.second_gap}s</p>
             </div>
         </div>
         `
