@@ -88,7 +88,7 @@ export const getReadings= async() => {
 
 export const getReadingsByPlaceId = async(placeId) => {
 	try {
-	 const {data} = await axios.get(`/reading${placeId}`)
+	 const {data} = await axios.get(`/readingByPlaceId${placeId}`)
 	 return data.message 
 	} catch (error) {
 		 console.error(error)
