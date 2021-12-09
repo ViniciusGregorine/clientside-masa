@@ -164,11 +164,21 @@ background-color: rgba(0,0,0,0);
 
 
 /*  content  */
+.content__logo {
+  height: 300px;
+  z-index: 1000;
+}
+
+.content__brand{ 
+  display: flex;
+  flex-direction: column;
+}
 .content__hereo {
+  padding-top: 120px;
   position: relative;
   background:transparent;
   width: 100%;
-  height: 689px;
+  min-height: 689px;
   overflow: hidden;
   
   grid-area: m;
@@ -188,7 +198,7 @@ background-color: rgba(0,0,0,0);
   
 .content__tittle{
   position: relative;
-  padding-top: 120px;
+  /* padding-top: 120px; */
   color: #fff;
   align-items: center;
   text-align: center;
@@ -196,7 +206,7 @@ background-color: rgba(0,0,0,0);
 
 .content__article {
   position: relative;
-  padding-top: 80px;
+  padding-top: 260px;
   min-width: 970px;
   
 }

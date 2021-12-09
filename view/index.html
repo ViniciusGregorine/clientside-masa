@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
+    <link rel="icon" href="/view/public/icons/logo-definitiva.svg">
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/reset.css">
     <link rel="stylesheet" href="./style/footer.css">
@@ -13,26 +14,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script> 
-        $(function(){
-          $("#componentFooter").load("/view/components/footer.html") 
-          $("#componentSidebar").load("/view/components/sidebar.html")
-          $("#componentMenu").load("/view/components/header.html")
-        });
-    </script> 
+    <script src="/viewModel/loadContent.js"></script>
     
 </head>
 <body>
     <div id="componentMenu"></div>
     <div id="componentSidebar"></div>
-
+    
     <main class="content" id="content">
         <div class="content__hereo">
-
-            <h1 class="content__tittle">módulo de análise sensorial de ambiente</h1>
-
+            <div class="content__brand">
+                <img class="content__logo" src="/view/public/icons/logo-definitiva.svg" alt="logo.svg">
+                <h1 class="content__tittle">Aplemble: Sensoriamento de ambientes</h1>
+            </div>
             <article class="content__article"> 
-                <p class="content__paragraph">Este projeto surgiu a partir de um TCC do Instituto Federal Catarinense (IFC). O projeto tem como objetivo medir qualquer dado sensorial de um ambiente e disponibiliza-lo para seu uso.  No momento, o projeto tem a capacidade de analizar e controlar qualquer ambiente, de estufaz cazeiras a salas escolares.</p>
+                <!-- <p class="content__paragraph">Este projeto surgiu a partir de um TCC do Instituto Federal Catarinense (IFC). O projeto tem como objetivo medir e armazenar qualquer dado sensorial de um ambiente e disponibilizá-lo para seu uso. No momento, o projeto tem a capacidade de analisar e controlar ambientes e sensores diverso.</p> -->
             </article>
         </div>
         
@@ -47,7 +43,7 @@
 
         </section>
         <article class="section__description">
-            <p class="content__paragraph black">Aplicou-se o arduino no monitoramento de dados a partir de sensores acoplados a ele, o arduino envia tais dados para o servidor Mysql. A extração desses dados do servidor é dada por uma API em nodeJs com express, que extrai e trata estes dados, disponibilzando em rotas http para qualquer interface  consumir.</p>
+            <p class="content__paragraph black">Aplicou-se o arduino no monitoramento de dados a partir de sensores acoplados a ele, o arduino envia tais dados para A AplembleAPI. A extração desses dados do servidor é dada por uma API em nodeJs com express, que extrai e trata estes dados, disponibilzando em rotas http para qualquer interface  consumir.</p>
         </article>
     </main>
     <div id="componentFooter"></div>
